@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api/api.service';
 
 @Component({
     selector: 'app-navigation',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-    constructor() { }
+    constructor(private apiService: ApiService) { }
 
     ngOnInit() {
     }

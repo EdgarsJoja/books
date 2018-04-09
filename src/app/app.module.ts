@@ -1,11 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialDesignModule } from './material-design/material-design.module';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
+// Services
+import { ConfigService } from './services/config/config.service';
+import { ApiService } from './services/api/api.service';
 
 @NgModule({
     declarations: [
@@ -14,9 +18,13 @@ import { NavigationComponent } from './navigation/navigation.component';
     ],
     imports: [
         BrowserModule,
+        HttpClientModule,
         MaterialDesignModule
     ],
-    providers: [],
+    providers: [
+        ConfigService,
+        ApiService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
