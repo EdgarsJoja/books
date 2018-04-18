@@ -3,14 +3,15 @@ import { ConfigService } from '../config/config.service';
 import { HttpClient } from '@angular/common/http';
 
 interface ApiConfigInterface {
-    base_url: string,
-    api_key: string,
-    api_format: string,
-    path_lists_names: string
+    base_url: string;
+    api_key: string;
+    api_format: string;
+    path_lists_names: string;
+    path_lists: string;
 }
 
-export interface ApiBooksListsInterface {
-    results: Array<any>
+export interface ApiResponseInterface {
+    results: Array<any>;
 }
 
 @Injectable()
@@ -40,16 +41,26 @@ export class ApiService {
     }
 
     /**
+     * Build url for list data API
+     *
+     * @returns {string}
+     */
+    public getListsApiUrl() {
+        return `${this.config.base_url}${this.config.path_lists}`;
+    }
+
+    /**
      * public getApiData - Get data from api
      *
-     * @param  {type} url: Api url
-     * @return {type}
+     * @param {string} url
+     * @param params
+     * @returns {Observable<Object>}
      */
-    public getApiData(url: string) {
+    public getApiData(url: string, params = {}) {
         return this.http.get(url, {
-            params: {
+            params: Object.assign({
                 'api-key': this.config.api_key
-            }
+            }, params)
         });
     }
 }

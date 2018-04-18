@@ -10,6 +10,7 @@ import { MaterialDesignModule } from './material-design/material-design.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { BooksListsComponent } from './books-lists/books-lists.component';
+import { BooksListComponent } from './books-list/books-list.component';
 
 // Services
 import { ConfigService } from './services/config/config.service';
@@ -19,14 +20,16 @@ import { ApiService } from './services/api/api.service';
 // @todo: Move routes to different place
 
 const routes: Routes = [
-    { path: 'lists', component: BooksListsComponent }
+    { path: 'lists', component: BooksListsComponent },
+    { path: 'lists/:list-id', component: BooksListComponent },
 ];
 
 @NgModule({
     declarations: [
         AppComponent,
         NavigationComponent,
-        BooksListsComponent
+        BooksListsComponent,
+        BooksListComponent
     ],
     imports: [
         BrowserModule,

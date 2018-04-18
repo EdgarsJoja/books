@@ -21,7 +21,7 @@
       "styles": [
         "theme.css",
         "assets/scss/styles.scss",
-        "~notosans-fontface/scss/notosans-fontface.scss"
+        "../node_modules/notosans-fontface/scss/notosans-fontface.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
