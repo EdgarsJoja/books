@@ -5,26 +5,27 @@ import { HttpClient } from '@angular/common/http';
 export class ConfigService {
 
     /**
-     * Config mapping
+     * Config
      */
     private config = {
-        'api': 'assets/config/api.json'
+        api: {
+            api_key: 'd1dc18277ebc4040b92f3653c14c8195',
+            api_format: 'json',
+            base_url: 'https://api.nytimes.com/svc/books/v3/',
+            path_lists_names: 'lists/names.json'
+        }
     };
 
     constructor(private http: HttpClient) {
 
     }
-
-
     /**
-     * getConfig - Get specific configuration
+     * getConfig - Get config by key
      *
-     * @param  {string} config
-     * @return {type}
+     * @param  {type} config: string description
+     * @return {type}                description
      */
     getConfig(config: string) {
-        return this.http.get(this.config[config], {
-            responseType: 'text'
-        });
+        return this.config[config];
     }
 }
