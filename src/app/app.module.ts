@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 
 // Modules
 import { MaterialDesignModule } from './material-design/material-design.module';
@@ -14,6 +15,13 @@ import { BooksListsComponent } from './books-lists/books-lists.component';
 import { ConfigService } from './services/config/config.service';
 import { ApiService } from './services/api/api.service';
 
+// Routes
+// @todo: Move routes to different place
+
+const routes: Routes = [
+    { path: 'lists', component: BooksListsComponent }
+];
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -23,7 +31,8 @@ import { ApiService } from './services/api/api.service';
     imports: [
         BrowserModule,
         HttpClientModule,
-        MaterialDesignModule
+        MaterialDesignModule,
+        RouterModule.forRoot(routes)
     ],
     providers: [
         ConfigService,
