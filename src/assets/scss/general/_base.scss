@@ -6,8 +6,13 @@ body {
 
 .content {
     padding: 1em;
+    max-width: 50em;
 }
 
 .mat-card {
     margin-bottom: 0.5em;
+}
+
+a {
+    text-decoration: none;
 }

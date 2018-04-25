@@ -1,7 +1,8 @@
 <h1></h1>
 
-<a *ngFor="let item of listData">
+<a *ngFor="let item of listData" [routerLink]="['./', item.book_details[0].primary_isbn13]">
   <mat-card>
     <mat-card-title>{{ item.book_details[0].title }}</mat-card-title>
+    <mat-card-subtitle>{{ item.book_details[0].author }}</mat-card-subtitle>
   </mat-card>
 </a>

@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { BooksListsComponent } from './books-lists/books-lists.component';
 import { BooksListComponent } from './books-list/books-list.component';
+import { BookComponent } from './book/book.component';
 
 // Services
 import { ConfigService } from './services/config/config.service';
@@ -22,6 +23,7 @@ import { ApiService } from './services/api/api.service';
 const routes: Routes = [
     { path: 'lists', component: BooksListsComponent },
     { path: 'lists/:list-id', component: BooksListComponent },
+    { path: 'lists/:list-id/:isbn', component: BookComponent },
 ];
 
 @NgModule({
@@ -29,7 +31,8 @@ const routes: Routes = [
         AppComponent,
         NavigationComponent,
         BooksListsComponent,
-        BooksListComponent
+        BooksListComponent,
+        BookComponent
     ],
     imports: [
         BrowserModule,

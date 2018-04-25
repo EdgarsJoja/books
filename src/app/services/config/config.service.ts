@@ -14,6 +14,7 @@ export class ConfigService {
             base_url: 'https://api.nytimes.com/svc/books/v3/',
             path_lists_names: 'lists/names.json',
             path_lists: 'lists.json',
+            path_reviews: 'reviews.json',
         }
     };
 

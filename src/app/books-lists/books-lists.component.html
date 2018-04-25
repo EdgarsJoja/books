@@ -3,6 +3,5 @@
 <a *ngFor="let category of categories" [routerLink]="['./', category.list_name_encoded]">
     <mat-card>
         <mat-card-subtitle>{{ category.display_name }}</mat-card-subtitle>
-        <mat-card-content>{{ category.list_name_encoded }}</mat-card-content>
     </mat-card>
 </a>

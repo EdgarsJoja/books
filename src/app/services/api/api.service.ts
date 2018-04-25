@@ -8,6 +8,7 @@ interface ApiConfigInterface {
     api_format: string;
     path_lists_names: string;
     path_lists: string;
+    path_reviews;
 }
 
 export interface ApiResponseInterface {
@@ -47,6 +48,15 @@ export class ApiService {
      */
     public getListsApiUrl() {
         return `${this.config.base_url}${this.config.path_lists}`;
+    }
+
+    /**
+     * Build url for reviews data API
+     *
+     * @returns {string}
+     */
+    public getReviewsApiUrl() {
+        return `${this.config.base_url}${this.config.path_reviews}`;
     }
 
     /**

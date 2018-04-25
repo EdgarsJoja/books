@@ -14,7 +14,6 @@ export class BooksListsComponent implements OnInit {
     constructor(private apiService: ApiService) {
         this.apiService.getApiData(this.apiService.getListsNamesApiUrl()).subscribe((data: ApiResponseInterface) => {
             this.categories = data.results;
-            console.log(this.categories);
         });
     }
 
