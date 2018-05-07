@@ -1,3 +1,13 @@
-<div *ngIf="isbn">
-  <h1>{{ isbn }}</h1>
+<div *ngIf="book">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>{{ book.title }}</mat-card-title>
+            <mat-card-subtitle *ngFor="let author of book.authors">{{ author.name }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image *ngIf="book.cover" src="{{ book.cover.large }}" alt="Cover">
+        <mat-card-content>
+            <p>{{ book.subtitle }}</p>
+            <p>{{ book.notes }}</p>
+        </mat-card-content>
+    </mat-card>
 </div>

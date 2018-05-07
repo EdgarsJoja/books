@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { ApiService } from '../services/api/api.service';
-
-import { ApiResponseInterface } from '../services/api/api.service';
+import { NytBooksService, ApiResponseInterface } from '../services/nyt-books/nyt-books.service';
 
 @Component({
     selector: 'app-books-list',
@@ -26,7 +24,7 @@ export class BooksListComponent implements OnInit {
      */
     public listData = [];
 
-    constructor(private route: ActivatedRoute, private apiService: ApiService) {
+    constructor(private route: ActivatedRoute, private nytBooksService: NytBooksService) {
         this.route.params.subscribe(data => {
             this.listId = data['list-id'];
 
@@ -42,12 +40,11 @@ export class BooksListComponent implements OnInit {
      * Get lists data from API
      */
     private getListsDataFromApi() {
-        this.apiService.getApiData(
-            this.apiService.getListsApiUrl(),
+        this.nytBooksService.getApiData(
+            this.nytBooksService.getListsApiUrl(),
             { list: this.listId }
         ).subscribe((data: ApiResponseInterface) => {
             this.listData = data.results;
-            console.log(data.results);
         });
     }
 }

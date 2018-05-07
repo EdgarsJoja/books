@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ApiService, ApiResponseInterface } from '../services/api/api.service';
+import { NytBooksService, ApiResponseInterface } from '../services/nyt-books/nyt-books.service';
 
 @Component({
     selector: 'app-books-lists',
@@ -11,8 +11,8 @@ export class BooksListsComponent implements OnInit {
 
     public categories = [];
 
-    constructor(private apiService: ApiService) {
-        this.apiService.getApiData(this.apiService.getListsNamesApiUrl()).subscribe((data: ApiResponseInterface) => {
+    constructor(private nytBooksService: NytBooksService) {
+        this.nytBooksService.getApiData(this.nytBooksService.getListsNamesApiUrl()).subscribe((data: ApiResponseInterface) => {
             this.categories = data.results;
         });
     }

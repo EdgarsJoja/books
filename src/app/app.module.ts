@@ -16,6 +16,8 @@ import { BookComponent } from './book/book.component';
 // Services
 import { ConfigService } from './services/config/config.service';
 import { ApiService } from './services/api/api.service';
+import { NytBooksService } from './services/nyt-books/nyt-books.service';
+import { OlBooksService } from './services/ol-books/ol-books-service.service';
 
 // Routes
 // @todo: Move routes to different place
@@ -42,7 +44,9 @@ const routes: Routes = [
     ],
     providers: [
         ConfigService,
-        ApiService
+        ApiService,
+        NytBooksService,
+        OlBooksService
     ],
     bootstrap: [AppComponent]
 })
