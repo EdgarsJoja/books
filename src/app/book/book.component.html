@@ -1,4 +1,4 @@
-<div *ngIf="book">
+<div *ngIf="showBookData">
     <mat-card class="example-card">
         <mat-card-header>
             <mat-card-title>{{ book.title }}</mat-card-title>
@@ -11,3 +11,5 @@
         </mat-card-content>
     </mat-card>
 </div>
+
+<app-loader [show]="showLoader"></app-loader>

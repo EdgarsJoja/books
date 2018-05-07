@@ -24,6 +24,13 @@ export class BooksListComponent implements OnInit {
      */
     public listData = [];
 
+    /**
+     * Whether loader is showing
+     *
+     * @type {boolean}
+     */
+    public showLoader = true;
+
     constructor(private route: ActivatedRoute, private nytBooksService: NytBooksService) {
         this.route.params.subscribe(data => {
             this.listId = data['list-id'];
@@ -45,6 +52,7 @@ export class BooksListComponent implements OnInit {
             { list: this.listId }
         ).subscribe((data: ApiResponseInterface) => {
             this.listData = data.results;
+            this.showLoader = false;
         });
     }
 }

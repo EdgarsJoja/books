@@ -13,6 +13,13 @@ export class BookComponent implements OnInit {
     public isbn;
     public book = {} as OlBooksApiResponseInterface;
 
+    /**
+     * Whether loader is showing
+     *
+     * @type {boolean}
+     */
+    public showLoader = true;
+
     constructor(private route: ActivatedRoute, private olBooksService: OlBooksService) {
         this.route.params.subscribe(data => {
             this.isbn = data['isbn'];
@@ -33,8 +40,18 @@ export class BookComponent implements OnInit {
         this.olBooksService.getApiData(this.olBooksService.getBookApiUrl(), {
             bibkeys: isbn
         }).subscribe((data: OlBooksApiResponseInterface) => {
+            console.log(this.book !== {} ? 1 : 0);
             this.book = data[isbn];
-            console.log(data);
+            this.showLoader = false;
         });
+    }
+
+    /**
+     * Whether book content should be displayed
+     *
+     * @returns {boolean}
+     */
+    get showBookData() {
+        return this.book && Object.keys(this.book).length > 0;
     }
 }

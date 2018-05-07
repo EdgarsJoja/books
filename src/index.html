@@ -9,6 +9,23 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body class="mat-app-background">
-  <app-root></app-root>
+  <app-root>
+      <div class="loader"></div>
+  </app-root>
+  <noscript>
+      <div class="noscript-message">
+          JavaScript is required for this app
+      </div>
+      <style>
+          .noscript-message {
+              position: absolute;
+              width: 100%;
+              text-align: center;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+          }
+      </style>
+  </noscript>
 </body>
 </html>

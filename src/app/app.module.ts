@@ -12,6 +12,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { BooksListsComponent } from './books-lists/books-lists.component';
 import { BooksListComponent } from './books-list/books-list.component';
 import { BookComponent } from './book/book.component';
+import { LoaderComponent } from './loader/loader.component';
 
 // Services
 import { ConfigService } from './services/config/config.service';
@@ -34,7 +35,8 @@ const routes: Routes = [
         NavigationComponent,
         BooksListsComponent,
         BooksListComponent,
-        BookComponent
+        BookComponent,
+        LoaderComponent
     ],
     imports: [
         BrowserModule,
