@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
+// Environment
+import { environment } from '../environments/environment';
 
 // Modules
 import { MaterialDesignModule } from './material-design/material-design.module';
@@ -42,7 +46,10 @@ const routes: Routes = [
         BrowserModule,
         HttpClientModule,
         MaterialDesignModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes),
+        ServiceWorkerModule.register('/ngsw-worker.js', {
+            enabled: environment.production
+        })
     ],
     providers: [
         ConfigService,
