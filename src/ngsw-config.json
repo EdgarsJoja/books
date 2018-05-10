@@ -26,6 +26,16 @@
           "/assets/**"
         ]
       }
+    },
+    {
+      "name": "olb-covers",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "https://covers.openlibrary.org/**"
+        ]
+      }
     }
   ],
   "dataGroups": [
@@ -34,7 +44,7 @@
       "urls": [
         "/lists",
         "/lists/*",
-        "api.nytimes.com/**"
+        "https://api.nytimes.com/**"
       ],
       "cacheConfig": {
         "strategy": "performance",
@@ -47,8 +57,7 @@
       "name": "olb-api",
       "urls": [
         "/lists/*/*",
-        "openlibrary.org/**",
-        "covers.openlibrary.org/**"
+        "https://openlibrary.org/**"
       ],
       "cacheConfig": {
         "strategy": "performance",
