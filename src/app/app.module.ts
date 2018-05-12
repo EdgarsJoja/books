@@ -17,6 +17,7 @@ import { BooksListsComponent } from './books-lists/books-lists.component';
 import { BooksListComponent } from './books-list/books-list.component';
 import { BookComponent } from './book/book.component';
 import { LoaderComponent } from './loader/loader.component';
+import { HomeComponent } from './home/home.component';
 
 // Services
 import { ConfigService } from './services/config/config.service';
@@ -28,6 +29,7 @@ import { OlBooksService } from './services/ol-books/ol-books-service.service';
 // @todo: Move routes to different place
 
 const routes: Routes = [
+    { path: '', component: HomeComponent },
     { path: 'lists', component: BooksListsComponent },
     { path: 'lists/:list-id', component: BooksListComponent },
     { path: 'lists/:list-id/:isbn', component: BookComponent },
@@ -40,7 +42,8 @@ const routes: Routes = [
         BooksListsComponent,
         BooksListComponent,
         BookComponent,
-        LoaderComponent
+        LoaderComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,
