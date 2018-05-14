@@ -1,10 +1,12 @@
 <div *ngIf="showBookData">
-    <mat-card class="example-card">
+    <mat-card class="book-card">
         <mat-card-header>
             <mat-card-title>{{ book.title }}</mat-card-title>
             <mat-card-subtitle *ngFor="let author of book.authors">{{ author.name }}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image *ngIf="book.cover" src="{{ book.cover.large }}" alt="Cover">
+        <div class="image">
+            <img *ngIf="book.cover" src="{{ book.cover.large }}" alt="Cover">
+        </div>
         <mat-card-content>
             <p>{{ book.subtitle }}</p>
             <p>{{ book.notes }}</p>

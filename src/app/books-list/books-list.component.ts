@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { NytBooksService, ApiResponseInterface } from '../services/nyt-books/nyt-books.service';
+import { SearchService } from '../services/search/search.service';
 
 @Component({
     selector: 'app-books-list',
@@ -31,11 +32,25 @@ export class BooksListComponent implements OnInit {
      */
     public showLoader = true;
 
-    constructor(private route: ActivatedRoute, private nytBooksService: NytBooksService) {
+    /**
+     * List display name
+     *
+     * @type {string}
+     */
+    public listName = '';
+
+    constructor(
+        private route: ActivatedRoute,
+        private nytBooksService: NytBooksService,
+        public search: SearchService
+    ) {
         this.route.params.subscribe(data => {
             this.listId = data['list-id'];
-
             this.getListsDataFromApi();
+        });
+
+        this.route.queryParams.subscribe(data => {
+            this.listName = data['display-name'];
         });
     }
 
@@ -53,6 +68,18 @@ export class BooksListComponent implements OnInit {
         ).subscribe((data: ApiResponseInterface) => {
             this.listData = data.results;
             this.showLoader = false;
+        });
+    }
+
+    /**
+     * Filter items by sear
+     *
+     * @returns {any[]}
+     */
+    get computedListData() {
+        return this.listData.filter((data) => {
+            return data.book_details[0].title.toLowerCase().indexOf(this.search.searchString.toLowerCase()) !== -1 ||
+                data.book_details[0].author.toLowerCase().indexOf(this.search.searchString.toLowerCase()) !== -1;
         });
     }
 }
