@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { ServiceWorkerModule, SwPush, SwUpdate } from '@angular/service-worker';
 
 // Environment
 import { environment } from '../environments/environment';
@@ -50,7 +50,7 @@ const routes: Routes = [
         HttpClientModule,
         MaterialDesignModule,
         RouterModule.forRoot(routes),
-        ServiceWorkerModule.register('/ngsw-worker.js', {
+        ServiceWorkerModule.register('/books-pwa-build/ngsw-worker.js', {
             enabled: environment.production
         })
     ],
