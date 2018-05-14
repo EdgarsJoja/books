@@ -1,5 +1,26 @@
+@import "../../assets/scss/var/variables";
+
 .toolbar {
     .space-filler {
         flex: 1 1 auto;
+    }
+
+    .icon-search {
+        background: url("../../assets/images/icons/util/search.svg") no-repeat;
+    }
+
+    .search {
+        background: $search-toolbar-bg-color;
+
+        .wrapper,
+        input {
+            color: $search-toolbar-text-color;
+            width: 100%;
+        }
+
+        .icon-arrow-back {
+            background: url("../../assets/images/icons/util/arrow-back.svg") no-repeat;
+            margin: 0 1em 0 0;
+        }
     }
 }

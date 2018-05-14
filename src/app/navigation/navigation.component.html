@@ -1,13 +1,21 @@
-<mat-toolbar color="primary" class="toolbar">
-    <mat-toolbar-row>
+<mat-toolbar color="primary" class="toolbar mat-elevation-z6">
+    <mat-toolbar-row class="mat-elevation-z4">
         <span>Books</span>
         <span class="space-filler"></span>
         <a href="http://developer.nytimes.com/" target="_blank"><img src="assets/images/icons/nyt.png"></a>
     </mat-toolbar-row>
 
-    <mat-toolbar-row>
+    <mat-toolbar-row [hidden]="showSearch">
         <a mat-button [routerLink]="''">Home</a>
         <a mat-button [routerLink]="'lists'">Bestsellers Lists</a>
         <span class="space-filler"></span>
+        <span class="icon icon-search" (click)="showSearch = true"></span>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row class="search" [hidden]="!showSearch">
+        <span matPrefix class="icon icon-arrow-back" (click)="showSearch = false"></span>
+        <mat-form-field class="wrapper">
+            <input matInput (input)="emitSearchData($event)"/>
+        </mat-form-field>
     </mat-toolbar-row>
 </mat-toolbar>

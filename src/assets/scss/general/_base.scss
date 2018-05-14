@@ -4,16 +4,30 @@ body {
     font-family: 'Noto Sans', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 .content {
     padding: 1em;
     max-width: 40em;
     margin: 0 auto;
 }
 
+[hidden] {
+    display: none !important;
+}
+
+// Cards
 .mat-card {
     margin-bottom: 0.5em;
 }
 
-a {
-    text-decoration: none;
+// Icons
+.icon {
+    background-size: 100% !important;
+    width: $icon-width;
+    height: $icon-height;
+    min-width: $icon-width;
+    min-height: $icon-height;
 }
