@@ -10,15 +10,16 @@ import { environment } from '../environments/environment';
 
 // Modules
 import { MaterialDesignModule } from './material-design/material-design.module';
+import { AppShellModule } from './app-shell/app-shell.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { BooksListsComponent } from './books-lists/books-lists.component';
 import { BooksListComponent } from './books-list/books-list.component';
 import { BookComponent } from './book/book.component';
 import { LoaderComponent } from './loader/loader.component';
 import { HomeComponent } from './home/home.component';
+import { AppShellComponent } from './app-shell/app-shell.component';
 
 // Services
 import { ConfigService } from './services/config/config.service';
@@ -35,12 +36,12 @@ const routes: Routes = [
     { path: 'lists', component: BooksListsComponent },
     { path: 'lists/:list-id', component: BooksListComponent, data: { display_name: '' } },
     { path: 'lists/:list-id/:isbn', component: BookComponent },
+    { path: '', component: AppShellComponent, outlet: 'app-shell' }
 ];
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavigationComponent,
         BooksListsComponent,
         BooksListComponent,
         BookComponent,
@@ -48,14 +49,15 @@ const routes: Routes = [
         HomeComponent
     ],
     imports: [
-        BrowserModule,
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
         HttpClientModule,
         MaterialDesignModule,
         RouterModule.forRoot(routes),
         ServiceWorkerModule.register('/books-pwa-build/ngsw-worker.js', {
             enabled: environment.production
         }),
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        AppShellModule
     ],
     providers: [
         ConfigService,

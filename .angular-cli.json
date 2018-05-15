@@ -30,7 +30,40 @@
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
+      },
+      "appShell": {
+        "app": "ngu-app-shell",
+        "route": ""
       }
+    },
+    {
+      "root": "src",
+      "outDir": "dist-server",
+      "assets": [
+        "assets",
+        "favicon.ico",
+        "manifest.json"
+      ],
+      "index": "index.html",
+      "main": "main.server.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.server.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "serviceWorker": true,
+      "styles": [
+        "theme.css",
+        "assets/scss/styles.scss",
+        "../node_modules/notosans-fontface/scss/notosans-fontface.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      },
+      "platform": "server",
+      "name": "ngu-app-shell"
     }
   ],
   "e2e": {
@@ -59,7 +92,6 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "component": {
-    }
+    "component": {}
   }
 }
