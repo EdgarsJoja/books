@@ -14,6 +14,7 @@ import { BooksListsComponent } from './books-lists/books-lists.component';
 import { BooksListComponent } from './books-list/books-list.component';
 import { BookComponent } from './book/book.component';
 import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 // Services
 import { ConfigService } from './services/config/config.service';
@@ -30,6 +31,7 @@ const routes: Routes = [
     { path: 'lists', component: BooksListsComponent },
     { path: 'lists/:list-id', component: BooksListComponent, data: { display_name: '' } },
     { path: 'lists/:list-id/:isbn', component: BookComponent },
+    { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
@@ -39,7 +41,8 @@ const routes: Routes = [
         BooksListsComponent,
         BooksListComponent,
         BookComponent,
-        HomeComponent
+        HomeComponent,
+        PageNotFoundComponent
     ],
     imports: [
         BrowserModule,

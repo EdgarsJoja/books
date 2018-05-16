@@ -13,6 +13,13 @@ export class BookComponent implements OnInit {
     public isbn;
     public book = {} as OlBooksApiResponseInterface;
 
+    /**
+     * Whether there is no book data found
+     *
+     * @type {boolean}
+     */
+    public noDataFound = false;
+
     constructor(private route: ActivatedRoute, private olBooksService: OlBooksService) {
         this.route.params.subscribe(data => {
             this.isbn = data['isbn'];
@@ -34,7 +41,10 @@ export class BookComponent implements OnInit {
             bibkeys: isbn
         }).subscribe((data: OlBooksApiResponseInterface) => {
             this.book = data[isbn];
-            console.log(data);
+
+            if (!this.book) {
+                this.noDataFound = true;
+            }
         });
     }
 }

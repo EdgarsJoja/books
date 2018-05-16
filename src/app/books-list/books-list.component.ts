@@ -60,7 +60,6 @@ export class BooksListComponent implements OnInit {
             { list: this.listId }
         ).subscribe((data: ApiResponseInterface) => {
             this.listData = data.results;
-            console.log(data);
         });
     }
 
