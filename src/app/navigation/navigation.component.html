@@ -15,7 +15,7 @@
     <mat-toolbar-row class="search" [hidden]="!showSearch">
         <span matPrefix class="icon icon-arrow-back" (click)="showSearch = false"></span>
         <mat-form-field class="wrapper">
-            <input matInput (input)="emitSearchData($event)"/>
+            <input matInput (input)="emitSearchData($event)" #searchInput autofocus/>
         </mat-form-field>
     </mat-toolbar-row>
 </mat-toolbar>

@@ -20,6 +20,7 @@ import { BookComponent } from './book/book.component';
 import { LoaderComponent } from './loader/loader.component';
 import { HomeComponent } from './home/home.component';
 import { AppShellComponent } from './app-shell/app-shell.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 // Services
 import { ConfigService } from './services/config/config.service';
@@ -36,7 +37,8 @@ const routes: Routes = [
     { path: 'lists', component: BooksListsComponent },
     { path: 'lists/:list-id', component: BooksListComponent, data: { display_name: '' } },
     { path: 'lists/:list-id/:isbn', component: BookComponent },
-    { path: '', component: AppShellComponent, outlet: 'app-shell' }
+    { path: '', component: AppShellComponent, outlet: 'app-shell' },
+    { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
@@ -46,14 +48,15 @@ const routes: Routes = [
         BooksListComponent,
         BookComponent,
         LoaderComponent,
-        HomeComponent
+        HomeComponent,
+        PageNotFoundComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
         HttpClientModule,
         MaterialDesignModule,
         RouterModule.forRoot(routes),
-        ServiceWorkerModule.register('/books-pwa-build/ngsw-worker.js', {
+        ServiceWorkerModule.register('/ngsw-worker.js', {
             enabled: environment.production
         }),
         BrowserAnimationsModule,

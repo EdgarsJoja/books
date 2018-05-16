@@ -2,7 +2,8 @@
 
 <a *ngFor="let category of bestsellersLists" [routerLink]="['./', category.list_name_encoded]" [queryParams]="{'display-name': category.display_name}">
     <mat-card>
-        <mat-card-subtitle>{{ category.display_name }}</mat-card-subtitle>
+        <mat-card-title>{{ category.display_name }}</mat-card-title>
+        <mat-card-subtitle>Updated: {{ category.newest_published_date }}</mat-card-subtitle>
     </mat-card>
 </a>
 
