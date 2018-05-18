@@ -10,7 +10,8 @@
       "assets": [
         "assets",
         "favicon.ico",
-        "manifest.json"
+        "manifest.json",
+        "sw.js"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,7 +20,6 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "serviceWorker": true,
       "styles": [
         "theme.css",
         "assets/scss/styles.scss",
@@ -50,7 +50,6 @@
       "tsconfig": "tsconfig.server.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "serviceWorker": true,
       "styles": [
         "theme.css",
         "assets/scss/styles.scss",

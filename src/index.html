@@ -16,6 +16,17 @@
 <app-root>
     <div class="loader"></div>
 </app-root>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('./sw.js')
+            .then(function () {
+                console.log("Service Worker Registered");
+            });
+    }
+</script>
+
 <noscript>
     <div class="noscript-message">
         JavaScript is required for this app

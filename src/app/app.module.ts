@@ -2,11 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
-import { ServiceWorkerModule, SwPush, SwUpdate } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-// Environment
-import { environment } from '../environments/environment';
 
 // Modules
 import { MaterialDesignModule } from './material-design/material-design.module';
@@ -56,9 +52,6 @@ const routes: Routes = [
         HttpClientModule,
         MaterialDesignModule,
         RouterModule.forRoot(routes),
-        ServiceWorkerModule.register('/ngsw-worker.js', {
-            enabled: environment.production
-        }),
         BrowserAnimationsModule,
         AppShellModule
     ],
