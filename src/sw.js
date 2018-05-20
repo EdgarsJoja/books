@@ -1,21 +1,21 @@
 const CACHE_PREFIX = 'BOOKS';
-const CACHE_VERSION = 'v3';
+const CACHE_VERSION = 'v6';
 const CACHE = `${CACHE_PREFIX}-${CACHE_VERSION}`;
 
 const STATIC_FILES = [
-    '/index.html',
-    '/favicon.ico',
-    '/inline.bundle.js',
-    '/main.bundle.js',
-    '/polyfills.bundle.js',
-    '/styles.bundle.css',
-    '/manifest.json',
-    '/NotoSans-Regular.eot',
-    '/NotoSans-Regular.svg',
-    '/NotoSans-Regular.ttf',
-    '/NotoSans-Regular.woff',
-    '/NotoSans-Regular.woff2',
-    '/assets/images/icons/nyt.png'
+    'index.html',
+    'favicon.ico',
+    'inline.bundle.js',
+    'main.bundle.js',
+    'polyfills.bundle.js',
+    'styles.bundle.css',
+    'manifest.json',
+    'NotoSans-Regular.eot',
+    'NotoSans-Regular.svg',
+    'NotoSans-Regular.ttf',
+    'NotoSans-Regular.woff',
+    'NotoSans-Regular.woff2',
+    'assets/images/icons/nyt.png'
 ];
 
 // INSTALL
