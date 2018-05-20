@@ -1,0 +1,14 @@
+.mat {
+    &-card {
+        &-content,
+        &-header,
+        &-subtitle {
+            font-size: $mat-card-font-size;
+        }
+    }
+
+    &-button,
+    &-raised-button {
+        font-size: $mat-button-font-size;
+    }
+}
